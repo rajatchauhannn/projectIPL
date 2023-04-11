@@ -11,6 +11,7 @@ load_dotenv()
 TOKEN = os.getenv("TEL_TOKEN")
 ATERNOS_USERNAME = os.getenv("ATERNOS_USERNAME")
 ATERNOS_PASSWORD = os.getenv("ATERNOS_PASSWORD")
+CRIC_API=os.getenv("CRIC_API")
 
 app = Flask(__name__)
 
@@ -183,7 +184,7 @@ def tel_show_score(chat_id):
 
 def tel_match_score(chat_id):
     url = f'https://api.telegram.org/bot{TOKEN}/sendMessage'
-    iplurl = "https://api.cricapi.com/v1/cricScore?apikey=edcee331-7984-4369-8ddd-e19a34ed4df2"
+    iplurl = "https://api.cricapi.com/v1/cricScore?apikey={CRIC_API}"
 
     response = urlopen(iplurl)
     data_json = json.loads(response.read())
