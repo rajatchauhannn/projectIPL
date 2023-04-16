@@ -1,13 +1,7 @@
-from flask import Flask
-from flask import request
-from flask import Response
-import requests
-import random
-import json
+from flask import Flask, request, Response
+import requests, random, json, os, traceback
 from urllib.request import urlopen, Request
-import os 
 from dotenv import load_dotenv
-import traceback
 load_dotenv()
 TOKEN = os.getenv("TEL_TOKEN")
 ATERNOS_USERNAME = os.getenv("ATERNOS_USERNAME")
@@ -22,12 +16,11 @@ urls={
     "sendAnimation" : f"https://api.telegram.org/bot{TOKEN}/sendAnimation",
     "sendPoll" : f"https://api.telegram.org/bot{TOKEN}/sendPoll"
 }
-def tel_aternos_status(chat_id):
+def tel_aternos_status(chat_id):    
     players = ''
     requests.post(urls['sendMessage'],json={'chat_id':chat_id,'text':f'Checking status for GBBPP625.aternos.me \n This could take several minutes...'})
     from python_aternos import Client   
-    aternos = Client.from_credentials(ATERNOS_USERNAME, ATERNOS_PASSWORD)
-    serv = aternos.list_servers()[0]
+    serv = Client.from_credentials(ATERNOS_USERNAME, ATERNOS_PASSWORD).list_servers()[0]
     serv.fetch()
 
     if serv.players_count > 0:
@@ -46,9 +39,7 @@ def tel_aternos_start(chat_id):
     """
     requests.post(urls['sendMessage'],json={'chat_id':chat_id,'text':'Request Recieved - Starting server GBBPP625.aternos.me - This could take several minutes'})
     from python_aternos import Client
-    aternos = Client.from_credentials(ATERNOS_USERNAME, ATERNOS_PASSWORD)
-    servs = aternos.list_servers()
-    myserv=servs[0]
+    myserv = Client.from_credentials(ATERNOS_USERNAME, ATERNOS_PASSWORD).list_servers()[0]
     myserv.start()
     requests.post(urls['sendMessage'],json={'chat_id': chat_id,'text': 'Server has started!'})
 
@@ -79,8 +70,7 @@ def parse_message(message):
     txt = message['message']['text']
     date = message['message']['date']
     import datetime, time
-    date_time = datetime.datetime.now()
-    dftime = time.mktime(date_time.timetuple())
+    dftime = time.mktime(datetime.datetime.now().timetuple())
     if int(dftime-10) > date:
         return chat_id, ""
     print("chat_id-->", chat_id)
@@ -108,7 +98,6 @@ def tel_nsfw_waifu(chat_id, text):
 
 def tel_send_poll(chat_id,text):
     text = list(text.split(" "))
-    print(len(text))
     if len(text) > 1:
         payload = {
             'chat_id' : chat_id,
@@ -174,6 +163,9 @@ def tel_help(chat_id):
                 /match - Shows status of current match\n
                 /score <username> <value> - updates the score\n
                 /show - shows current score\n 
+                /aternos start - starts minecraft server\n
+                /aternos stop - stops minecraft server\n
+                /aternos status - tells the status of the minecraft server\n
                 /help - This page'''
                 }
    
