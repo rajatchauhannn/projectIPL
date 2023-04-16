@@ -7,45 +7,60 @@ import json
 from urllib.request import urlopen, Request
 import os 
 from dotenv import load_dotenv
+import traceback
 load_dotenv()
 TOKEN = os.getenv("TEL_TOKEN")
 ATERNOS_USERNAME = os.getenv("ATERNOS_USERNAME")
 ATERNOS_PASSWORD = os.getenv("ATERNOS_PASSWORD")
-CRIC_API=os.getenv("CRIC_API")
+CRIC_API1=os.getenv("CRIC_API1")
+CRIC_API2=os.getenv("CRIC_API2")
 
 app = Flask(__name__)
+urls={
+    "sendMessage": f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+    "sendPhoto" : f"https://api.telegram.org/bot{TOKEN}/sendPhoto",
+    "sendAnimation" : f"https://api.telegram.org/bot{TOKEN}/sendAnimation",
+    "sendPoll" : f"https://api.telegram.org/bot{TOKEN}/sendPoll"
+}
+def tel_aternos_status(chat_id):
+    players = ''
+    requests.post(urls['sendMessage'],json={'chat_id':chat_id,'text':f'Checking status for GBBPP625.aternos.me \n This could take several minutes...'})
+    from python_aternos import Client   
+    aternos = Client.from_credentials(ATERNOS_USERNAME, ATERNOS_PASSWORD)
+    serv = aternos.list_servers()[0]
+    serv.fetch()
+
+    if serv.players_count > 0:
+        for i in serv.players_list:
+            players += i + '\n'
+    return requests.post(urls['sendMessage'],json={'chat_id':chat_id,'text':f'GBBPP625.aternos.me is currently {serv.status} \n Players Connected: {serv.players_count} \n {players}'}) 
 
 def tel_aternos_start(chat_id):
-    url = f'https://api.telegram.org/bot{TOKEN}/sendMessage'
-    requests.post(url,json={'chat_id':chat_id,'text':'Request Recieved - Starting server GBBPP625.aternos.me - This could take several minutes'})
+    """Starts Minecraft Server
+
+    Args:
+        chat_id (string): Telegram Chat ID
+
+    Returns:
+        _type_: _description_
+    """
+    requests.post(urls['sendMessage'],json={'chat_id':chat_id,'text':'Request Recieved - Starting server GBBPP625.aternos.me - This could take several minutes'})
     from python_aternos import Client
     aternos = Client.from_credentials(ATERNOS_USERNAME, ATERNOS_PASSWORD)
     servs = aternos.list_servers()
     myserv=servs[0]
     myserv.start()
-    payload = {
-            'chat_id': chat_id,
-            'text': 'Server has started!'
-            }
-   
-    r = requests.post(url,json=payload)
-    return r
+    requests.post(urls['sendMessage'],json={'chat_id': chat_id,'text': 'Server has started!'})
 
 def tel_aternos_stop(chat_id):
-    url = f'https://api.telegram.org/bot{TOKEN}/sendMessage'
-    requests.post(url,json={'chat_id':chat_id,'text':'Request Recieved - Stopping server GBBPP625.aternos.me - This could take several minutes'})
+    requests.post(urls['sendMessage'],json={'chat_id':chat_id,'text':'Request Recieved - Stopping server GBBPP625.aternos.me - This could take several minutes'})
     from python_aternos import Client
     aternos = Client.from_credentials(ATERNOS_USERNAME, ATERNOS_PASSWORD)
     servs = aternos.list_servers()
     myserv=servs[0]
     myserv.stop()
-    payload = {
-        'chat_id': chat_id,
-        'text': 'Server has stopped!'
-        }
    
-    r = requests.post(url,json=payload)
-    return r
+    requests.post(urls['sendMessage'],json={'chat_id': chat_id,'text': 'Server has stopped!'})
 
 def parse_poll(message):
     poll_id = message['poll_answer']['poll_id']
@@ -62,43 +77,21 @@ def parse_message(message):
     print("message-->",message)
     chat_id = message['message']['chat']['id']
     txt = message['message']['text']
+    date = message['message']['date']
+    import datetime, time
+    date_time = datetime.datetime.now()
+    dftime = time.mktime(date_time.timetuple())
+    if int(dftime-10) > date:
+        return chat_id, ""
     print("chat_id-->", chat_id)
     print("txt-->", txt)
     return chat_id,txt
- 
-def tel_send_message(chat_id, text):
-    url = f'https://api.telegram.org/bot{TOKEN}/sendMessage'
-    payload = {
-                'chat_id': chat_id,
-                'text': text
-                }
-   
-    r = requests.post(url,json=payload)
-    return r
 
-def tel_send_video(chat_id):
-    video=""
-    url = f'https://api.telegram.org/bot{TOKEN}/sendVideo'
-    payload = {
-        'chat_id' : chat_id,
-        'video' : video
-    }
-
-    r = requests.post(url, json=payload)
-    return r
-
-
-def tel_send_image(chat_id):
+def tel_toss(chat_id):
     tails="https://qph.cf2.quoracdn.net/main-qimg-148ae81e6fe0500e130fb547026a9b26-lq"
     heads="https://qph.cf2.quoracdn.net/main-qimg-e0e0099a4e81c40def6da0742c9201b5-lq"
     
-    url = f"https://api.telegram.org/bot{TOKEN}/sendPhoto"
-    payload = {
-        'chat_id':chat_id,
-        'photo': random.choice([heads,tails])
-    }
-    r = requests.post(url, json=payload)
-    return r
+    requests.post(urls['sendPhoto'], json={'chat_id':chat_id,'photo': random.choice([heads,tails])})
 
 def tel_nsfw_waifu(chat_id, text):
     text = list(text.split(" "))
@@ -109,24 +102,11 @@ def tel_nsfw_waifu(chat_id, text):
     )
     data_json = json.loads(urlopen(response).read())
     if data_json['url'][-4:] == '.gif':
-        tel_url = f"https://api.telegram.org/bot{TOKEN}/sendAnimation"
-        payload = {
-            'chat_id':chat_id,
-            'animation': data_json['url']
-        }
-        r = requests.post(tel_url, json=payload)
-        return r
+        requests.post(urls['sendAnimation'], json={'chat_id':chat_id,'animation': data_json['url']})
     else:
-        tel_url = f"https://api.telegram.org/bot{TOKEN}/sendPhoto"
-        payload = {
-            'chat_id':chat_id,
-            'photo': data_json['url']
-            }
-        r = requests.post(tel_url, json=payload)
-        return r
+        requests.post(urls['sendPhoto'], json={'chat_id':chat_id,'photo': data_json['url']})
 
 def tel_send_poll(chat_id,text):
-    url = f'https://api.telegram.org/bot{TOKEN}/sendPoll'
     text = list(text.split(" "))
     print(len(text))
     if len(text) > 1:
@@ -138,14 +118,11 @@ def tel_send_poll(chat_id,text):
             "type":"regular",
 
         }
-        r = requests.post(url, json=payload)
-        return r
+        requests.post(urls['sendPoll'], json=payload)
     else:
-        url = f'https://api.telegram.org/bot{TOKEN}/sendMessage'
-        return requests.post(url, json={'chat_id':chat_id, 'text':'Also add poll options :)'})
+        requests.post(urls['sendMessage'], json={'chat_id':chat_id, 'text':'Also add poll options :)'})
 
 def tel_update_score(chat_id, text, msg):
-    url = f'https://api.telegram.org/bot{TOKEN}/sendMessage'
     text = list(text.split(" "))
     if len(text) > 1:
         with open('score.json', "r") as file:
@@ -154,19 +131,11 @@ def tel_update_score(chat_id, text, msg):
         with open('score.json', "w") as file:
             json.dump(data, file)
         file.close()
-
-        payload={
-            'chat_id': chat_id,
-            'text': f'Updated {text[1]}\'s score to {text[2]} issued by @{msg["message"]["from"]["username"]}'
-        }
-
-        r = requests.post(url, json=payload)
-        return r
+        requests.post(urls['sendMessage'], json={'chat_id': chat_id,'text': f'Updated {text[1]}\'s score to {text[2]} issued by @{msg["message"]["from"]["username"]}'})
     else:
-        return requests.post(url,json={'chat_id':chat_id,'text':'Enter username with score please :)'})
+        requests.post(urls['sendMessage'],json={'chat_id':chat_id,'text':'Enter username with score please :)'})
 
 def tel_show_score(chat_id):
-    url = f'https://api.telegram.org/bot{TOKEN}/sendMessage'
 
     with open('score.json', "r") as file:
         data = json.load(file)
@@ -174,45 +143,41 @@ def tel_show_score(chat_id):
     for i in data:
         text = text + str(i) + " : " + str(data[i]) + '\n'
     file.close()
-
-    payload={
-        'chat_id':chat_id,
-        'text': text
-    }
-    r = requests.post(url, json=payload)
-    return r
+    requests.post(urls['sendMessage'], json={'chat_id':chat_id,'text': text })
 
 def tel_match_score(chat_id):
-    url = f'https://api.telegram.org/bot{TOKEN}/sendMessage'
-    iplurl = "https://api.cricapi.com/v1/cricScore?apikey={CRIC_API}"
-
-    response = urlopen(iplurl)
+    response = urlopen(f"{CRIC_API1}")
     data_json = json.loads(response.read())
 
     for i in data_json['data']:
-        if i['ms'] == 'live' or i['ms'] == 'result' and i['matchType'] == 't20':
-            currentMatch = i
+        try:
+            if i['matchType'] == 't20':
+                break
+        except:
+            pass
+    response = urlopen(f"{CRIC_API2}")
+    data_json = json.loads(response.read())
+    for j in data_json['data']: 
+        if j['id'] == i['id']:
             break
-            
-    text = currentMatch['t1'] + '\t' +  currentMatch['t1s']  + '\nVS \n' + currentMatch['t2'] + '\t' + currentMatch['t2s']+ '\n\n' + currentMatch['status']
-    print(text)
-    payload = {
-                'chat_id': chat_id,
-                'text': text
-                }
 
-    r= requests.post(url, json=payload)
-    return r
+    text = j['t1'] + '\t' +  j['t1s']  + '\nVS \n' + j['t2'] + '\t' + j['t2s']+ '\n\n' + j['status']
+    print(text)
+    requests.post(urls['sendMessage'], json={'chat_id': chat_id,'text': text})
  
 def tel_help(chat_id):
-    url = f'https://api.telegram.org/bot{TOKEN}/sendMessage'
     payload = {
                 'chat_id': chat_id,
-                'text': 'Commands:\n\n /toss - Flips a coin \n /poll <option1> <option2> - Creates a poll\n /match - Shows status of current match\n /score <username> <value> - updates the score\n /show - shows current score\n /help - This page'
+                'text': '''Commands:\n\n 
+                /toss - Flips a coin \n
+                /poll <option1> <option2> - Creates a poll\n
+                /match - Shows status of current match\n
+                /score <username> <value> - updates the score\n
+                /show - shows current score\n 
+                /help - This page'''
                 }
    
-    r = requests.post(url,json=payload)
-    return r
+    requests.post(urls['sendMessage'],json=payload)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -222,7 +187,7 @@ def index():
             chat_id,txt = parse_message(msg)
 
             if txt == "/toss":
-                tel_send_image(chat_id)
+                tel_toss(chat_id)
             elif txt[:5] == "/poll":
                 tel_send_poll(chat_id, txt)
             elif txt[:6] == "/score":
@@ -239,12 +204,13 @@ def index():
                 tel_aternos_start(chat_id)
             elif txt == '/aternos stop':
                 tel_aternos_stop(chat_id)
+            elif txt == '/aternos status':
+                tel_aternos_status(chat_id)
             else:
                 pass
                 
         except:
-            print("No file from index-->")
-            # poll_id,user,option=parse_poll(msg)
+            traceback.print_exc()
     
         return Response('ok', status=200)
     else:
