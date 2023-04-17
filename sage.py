@@ -16,6 +16,53 @@ urls={
     "sendAnimation" : f"https://api.telegram.org/bot{TOKEN}/sendAnimation",
     "sendPoll" : f"https://api.telegram.org/bot{TOKEN}/sendPoll"
 }
+
+def tel_add_anime(chat_id, text):
+    text = list(text.split('\n'))
+    question=text[1]
+    options=[text[2],text[3],text[4],text[5],]
+    correct_answer=text[6]
+
+    print("\n")
+    
+    entry={'question': question, 'options': options, 'correct_answer': correct_answer}
+
+    with open('anime.json', "r") as file:
+        data = json.load(file)
+
+    data.append(entry)
+
+    with open('anime.json', "w") as file:
+        json.dump(data, file)
+    
+    requests.post(urls['sendMessage'],json={'chat_id':chat_id,'text':f'Added question : {question} \nOptions : {text[2]}, {text[3]}, {text[4]}, {text[5]}\nCorrect Answer : {text[6]}'})
+
+def tel_anime(chat_id):
+    import random
+    url = urlopen(f'https://opentdb.com/api.php?amount=1&category=31').read()
+    question = json.loads(url)['results'][0]['question']
+    correct_answer = json.loads(url)['results'][0]['correct_answer']
+    all_answers = json.loads(url)['results'][0]['incorrect_answers']
+    all_answers.append(correct_answer)
+    print(all_answers)
+    random.shuffle(all_answers)
+    correct_option_id=all_answers.index(correct_answer)
+    print(correct_option_id)
+    payload = {
+            'chat_id' : chat_id,
+            'question': question,
+            "options": json.dumps(all_answers),
+            "is_anonymous" : False,
+            "type":"quiz",
+            "correct_option_id": correct_option_id
+
+        } 
+    requests.post(urls['sendPoll'], json=payload)
+
+def tel_fact(chat_id):
+    text = json.loads(urlopen('https://uselessfacts.jsph.pl/api/v2/facts/random').read())['text']
+    requests.post(urls['sendMessage'],json={'chat_id':chat_id,'text':f'{text}'})
+
 def tel_aternos_status(chat_id):    
     players = ''
     requests.post(urls['sendMessage'],json={'chat_id':chat_id,'text':f'Checking status for GBBPP625.aternos.me \n This could take several minutes...'})
@@ -26,7 +73,7 @@ def tel_aternos_status(chat_id):
     if serv.players_count > 0:
         for i in serv.players_list:
             players += i + '\n'
-    return requests.post(urls['sendMessage'],json={'chat_id':chat_id,'text':f'GBBPP625.aternos.me is currently {serv.status} \n Players Connected: {serv.players_count} \n {players}'}) 
+    requests.post(urls['sendMessage'],json={'chat_id':chat_id,'text':f'GBBPP625.aternos.me is currently {serv.status} \n Players Connected: {serv.players_count} \n {players}'}) 
 
 def tel_aternos_start(chat_id):
     """Starts Minecraft Server
@@ -156,17 +203,7 @@ def tel_match_score(chat_id):
  
 def tel_help(chat_id):
     payload = {
-                'chat_id': chat_id,
-                'text': '''Commands:\n\n 
-                /toss - Flips a coin \n
-                /poll <option1> <option2> - Creates a poll\n
-                /match - Shows status of current match\n
-                /score <username> <value> - updates the score\n
-                /show - shows current score\n 
-                /aternos start - starts minecraft server\n
-                /aternos stop - stops minecraft server\n
-                /aternos status - tells the status of the minecraft server\n
-                /help - This page'''
+                'chat_id': chat_id,'text': '''Commands:\n\n/toss - Flips a coin \n/poll <option1> <option2> - Creates a poll\n/match - Shows status of current match\n/score <username> <value> - updates the score\n/show - shows current score\n/aternos start - starts minecraft server\n/aternos stop - stops minecraft server\n/aternos status - tells the status of the minecraft server\n/fact - tells a random fact\n/help - This page'''
                 }
    
     requests.post(urls['sendMessage'],json=payload)
@@ -178,26 +215,32 @@ def index():
         try:
             chat_id,txt = parse_message(msg)
 
-            if txt == "/toss":
+            if txt[:5] == "/toss":
                 tel_toss(chat_id)
             elif txt[:5] == "/poll":
                 tel_send_poll(chat_id, txt)
             elif txt[:6] == "/score":
                 tel_update_score(chat_id, txt, msg)
-            elif txt == "/show":
+            elif txt[:5] == "/show":
                 tel_show_score(chat_id)
-            elif txt == '/match':
+            elif txt[:6] == '/match':
                 tel_match_score(chat_id)
-            elif txt == '/help':
+            elif txt[:5] == '/help':
                 tel_help(chat_id)
-            elif txt[:5] =='/nsfw' or txt[:4] == '/sfw':
+            elif txt[:5] == '/nsfw' or txt[:4] == '/sfw':
                 tel_nsfw_waifu(chat_id, txt)
-            elif txt == '/aternos start':
+            elif txt[:8] == '/mcstart':
                 tel_aternos_start(chat_id)
-            elif txt == '/aternos stop':
+            elif txt[:7] == '/mcstop':
                 tel_aternos_stop(chat_id)
-            elif txt == '/aternos status':
+            elif txt[:9] == '/mcstatus':
                 tel_aternos_status(chat_id)
+            elif txt[:5] == '/fact':
+                tel_fact(chat_id)
+            elif txt[:6] == '/anime':
+                tel_anime(chat_id)
+            elif txt[:9] == '/addanime':
+                tel_add_anime(chat_id, txt)
             else:
                 pass
                 
