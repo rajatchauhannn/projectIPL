@@ -91,7 +91,7 @@
     "correct_answer": "Resonance"
   },
   {
-    "question": "Which PokÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©mon has electricity-storing pouches on its cheeks?",
+    "question": "Which PokÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©mon has electricity-storing pouches on its cheeks?",
     "options": [
       "Pikachu",
       "Squirtle",
@@ -261,7 +261,7 @@
     "correct_answer": "Trixie"
   },
   {
-    "question": "What is the name of Studio Ghibli’s well-known mascot?",
+    "question": "What is the name of Studio Ghibliâ€™s well-known mascot?",
     "options": [
       "Kiki",
       "Bakura",
@@ -619,5 +619,565 @@
       "Hiroshi Kamiya"
     ],
     "correct_answer": "Kobayashi Miyano"
+  },
+  {
+    "question": "Sophie is a character from which anime movie? ",
+    "options": [
+      "Go! Princess PreCure ",
+      "Snow White WIth The Red Hair ",
+      "Howl's Moving Castle ",
+      "Sailor Moon "
+    ],
+    "correct_answer": "Howl's Moving Castle"
+  },
+  {
+    "question": "In Dragon Ball Super, Goku is sent to destroy earth. What happened to make him change his ways?",
+    "options": [
+      "He just realised it was quite mean",
+      "He bumped his head",
+      "He couldn't be bothered in the end",
+      "No-one knows"
+    ],
+    "correct_answer": "He bumped his head"
+  },
+  {
+    "question": "a boy has his family murdered and then joins the fire department seeking revenge. Guess the anime from the bad description ",
+    "options": [
+      "Tokyo Revengers ",
+      "Demon Slayer ",
+      "Fire Force ",
+      "Naruto"
+    ],
+    "correct_answer": "Fire Force"
+  },
+  {
+    "question": "Who is the original creator of the Rasengan? ",
+    "options": [
+      "Jiraiya ",
+      "Minato ",
+      "Naruto ",
+      "Tobirama"
+    ],
+    "correct_answer": "Minato"
+  },
+  {
+    "question": "Who is known as the \"God of Shinobi\"? ",
+    "options": [
+      "Hashirama ",
+      "Hiruzen ",
+      "Kaguya ",
+      "Madara"
+    ],
+    "correct_answer": "Hashirama"
+  },
+  {
+    "question": "How old does Naruto turn at the end of the 4th Great Shinobi War? ",
+    "options": [
+      "15 ",
+      "16 ",
+      "17 ",
+      "18 "
+    ],
+    "correct_answer": "17"
+  },
+  {
+    "question": "Who was not a part of the Sasuke Retrieval squad? ",
+    "options": [
+      "Choji ",
+      "Kiba ",
+      "Neji ",
+      "Shino"
+    ],
+    "correct_answer": "Shino"
+  },
+  {
+    "question": "What chakra nature does Naruto use? ",
+    "options": [
+      "Earth ",
+      "Fire ",
+      "Lightning ",
+      "Wind"
+    ],
+    "correct_answer": "Wind"
+  },
+  {
+    "question": "What does Shippuden mean in \"Naruto Shippuden\"? ",
+    "options": [
+      "Hurricane ",
+      "Storm ",
+      "Tornado ",
+      "Tsunami "
+    ],
+    "correct_answer": "Hurricane"
+  },
+  {
+    "question": "How many members are in the Akatsuki at the beginning of Naruto Shippuden? ",
+    "options": [
+      "8 ",
+      "9 ",
+      "10 ",
+      "11"
+    ],
+    "correct_answer": "10"
+  },
+  {
+    "question": "Who is responsible for the death of Obito? ",
+    "options": [
+      "Kaguya ",
+      "Kakashi ",
+      "Madara ",
+      "Naruto"
+    ],
+    "correct_answer": "Kaguya"
+  },
+  {
+    "question": "Which clan is known for their use of insects?",
+    "options": [
+      "Aburame Clan",
+      "Inuzuka Clan",
+      "Nara Clan",
+      "Yamanaka Clan"
+    ],
+    "correct_answer": "Aburame Clan"
+  },
+  {
+    "question": "What is the name of the position that rules the Hidden Mist Village? ",
+    "options": [
+      "Kazekage ",
+      "Mizukage ",
+      "Raikage ",
+      "Tsuchikage"
+    ],
+    "correct_answer": "Mizukage"
+  },
+  {
+    "question": "How many of Kurama's cloaked tails emerged during Naruto's fight against Orochimaru? ",
+    "options": [
+      "1 ",
+      "2 ",
+      "3 ",
+      "4"
+    ],
+    "correct_answer": "4"
+  },
+  {
+    "question": "What was Kushina's nickname?",
+    "options": [
+      "Red Devil of the Leaf",
+      "Red Hot Habanero",
+      "Red Hot Chili Pepper",
+      "Red Headed Devil"
+    ],
+    "correct_answer": "Red Hot Habanero"
+  },
+  {
+    "question": "Which one of these is NOT a Mangekyo ability? ",
+    "options": [
+      "Amaterasu ",
+      "Kamui ",
+      "Kotoamatsukami ",
+      "Tenseigan "
+    ],
+    "correct_answer": "Tenseigan"
+  },
+  {
+    "question": "What year did the first adaptation of fruits basket air? ",
+    "options": [
+      "2002 ",
+      "2001 ",
+      "2000 ",
+      "1999 "
+    ],
+    "correct_answer": "2001"
+  },
+  {
+    "question": "What is Mikitaka's real name? ",
+    "options": [
+      "Mioka Natakashi Dow ",
+      "Wapera Mikitaka Eka ",
+      "Azawana Miki Mei ",
+      "Nu Mikitakazo Nshi"
+    ],
+    "correct_answer": "Nu Mikitakazo Nshi"
+  },
+  {
+    "question": "In JJBA:P4, What is Mikitaka's real name? ",
+    "options": [
+      "Mioka Natakashi Dow ",
+      "Wapera Mikitaka Eka ",
+      "Azawana Miki Mei ",
+      "Nu Mikitakazo Nshi "
+    ],
+    "correct_answer": "Nu Mikitakazo Nshi"
+  },
+  {
+    "question": "How did Kakyoin attack Jotaro when he was first revealed?",
+    "options": [
+      "Paintbrush ",
+      "Gun ",
+      "Katana ",
+      "His Stand"
+    ],
+    "correct_answer": "His Stand"
+  },
+  {
+    "question": "In JJBA:P4, What is the name of Yukako's Stand?",
+    "options": [
+      "Heart",
+      "Quiet Riot",
+      "Love Deluxe",
+      "Poison"
+    ],
+    "correct_answer": "Poison"
+  },
+  {
+    "question": "In JJBA:P4, What is the name of Yukako's Stand? ",
+    "options": [
+      "Heart ",
+      "Quiet Riot ",
+      "Love Deluxe ",
+      "Poison "
+    ],
+    "correct_answer": "Love Deluxe"
+  },
+  {
+    "question": "Who did Diavolo switch bodies with during the Chariot Requiem Arc? ",
+    "options": [
+      "Mista ",
+      "Narancia ",
+      "Bruno ",
+      "Trish"
+    ],
+    "correct_answer": "Bruno"
+  },
+  {
+    "question": "How old was Jonathan at the beginning of Phantom Blood? ",
+    "options": [
+      "12 ",
+      "15 ",
+      "10 ",
+      "18"
+    ],
+    "correct_answer": "12"
+  },
+  {
+    "question": "What is Lisa Lisa's real name? ",
+    "options": [
+      "Elizabeth ",
+      "Annabel ",
+      "Jannet ",
+      "Suzie"
+    ],
+    "correct_answer": "Elizabeth"
+  },
+  {
+    "question": "In JJBA:P5, What was the first thing Doppio used as a phone to call Diavalo?",
+    "options": [
+      "A phone",
+      "A cigarette",
+      "A frog",
+      "A car ornament"
+    ],
+    "correct_answer": "A phone"
+  },
+  {
+    "question": "Who was the vampire seen during the beginning of Battle Tendency? ",
+    "options": [
+      "Straizo ",
+      "Buford ",
+      "Dio ",
+      "Donovin"
+    ],
+    "correct_answer": "Straizo"
+  },
+  {
+    "question": "What is the name of Norisuke Higashikata's Stand?",
+    "options": [
+      "Paper Moon King",
+      "King Nothing",
+      "Paisley Park",
+      "Doobie Wah!"
+    ],
+    "correct_answer": "King Nothing"
+  },
+  {
+    "question": "What city did Ghiaccio rant about? ",
+    "options": [
+      "Paris ",
+      "Rome ",
+      "Naples ",
+      "Venice"
+    ],
+    "correct_answer": "Venice"
+  },
+  {
+    "question": "At what time did Funny Valentine shoot Johnny Joestar?",
+    "options": [
+      "3:35 PM",
+      "4:04 PM",
+      "4:08 PM",
+      "4:12 PM"
+    ],
+    "correct_answer": "4:08 PM"
+  },
+  {
+    "question": "Which Joestar ended the bloodline?",
+    "options": [
+      "Jotaro",
+      "Josuke",
+      "Jolyne",
+      "Johnny"
+    ],
+    "correct_answer": "Jolyne"
+  },
+  {
+    "question": "Who helped Koichi learn fluent Italian in Golden Wind?",
+    "options": [
+      "Jotaro",
+      "Rohan",
+      "Josuke",
+      "Yuya"
+    ],
+    "correct_answer": "Rohan"
+  },
+  {
+    "question": "What was the Ending theme of Part 4 Diamond Is Unbreakable?",
+    "options": [
+      "I Want You",
+      "Face Off",
+      "Free Bird",
+      "Everybody Wants To Rule The World"
+    ],
+    "correct_answer": "I Want You"
+  },
+  {
+    "question": "In JJBA:P4, Who is the host of Morioh Radio?",
+    "options": [
+      "Yuya Fungami",
+      "Kai Harada",
+      "Terunosuke Miyamoto",
+      "Tamami Kobayashi"
+    ],
+    "correct_answer": "Kai Harada"
+  },
+  {
+    "question": "In JJBA, What does Kakyoin mention is his favorite musician?",
+    "options": [
+      "Led Zeppelin",
+      "Pearl Jam",
+      "Guns N' Roses",
+      "Sting"
+    ],
+    "correct_answer": "Sting"
+  },
+  {
+    "question": "What kanji does Yoshikage Kira bite into his nails?",
+    "options": [
+      "Luck",
+      "Peace",
+      "Hope",
+      "Terror"
+    ],
+    "correct_answer": "Luck"
+  },
+  {
+    "question": "Who is Araki's favorite JoJo?",
+    "options": [
+      "Jotaro",
+      "Josuke 4",
+      "Jonathan",
+      "Josuke 8"
+    ],
+    "correct_answer": "Josuke 4"
+  },
+  {
+    "question": "How many people tackled Jonathan before he had to throw the ball to Dio during their Rugby game?",
+    "options": [
+      "3",
+      "4",
+      "2",
+      "6"
+    ],
+    "correct_answer": "4"
+  },
+  {
+    "question": "In JJBA P5, What is Doppio's first name?",
+    "options": [
+      "Vinegar",
+      "Polenta",
+      "Pizza",
+      "Ossobuco"
+    ],
+    "correct_answer": "Vinegar"
+  },
+  {
+    "question": "In JJBA P4, What is the name of Killer Queens' first bomb?",
+    "options": [
+      "Sheer Heart Attack",
+      "Killer Queen Bites The Dust",
+      "Bomb Transmutation",
+      "Break Free"
+    ],
+    "correct_answer": "Bomb Transmutation"
+  },
+  {
+    "question": "Who are the 2 illegitimate members of the Joestar Bloodline?",
+    "options": [
+      "Jolyne and Giorno",
+      "Giorno and Josuke",
+      "Josuke and Jolyne",
+      "Jolyne and DIO"
+    ],
+    "correct_answer": "Giorno and Josuke"
+  },
+  {
+    "question": "How much of Josuke's money did Joseph spend on baby supplies?",
+    "options": [
+      "120,000 Yen",
+      "150,000 Yen",
+      "190,000 Yen",
+      "130,000 Yen"
+    ],
+    "correct_answer": "130,000 Yen"
+  },
+  {
+    "question": "How old is Josuke in part 8 Jojolion?",
+    "options": [
+      "16",
+      "15",
+      "19",
+      "22"
+    ],
+    "correct_answer": "19"
+  },
+  {
+    "question": "Which quintessentially Japanese dish originates from Portugal?",
+    "options": [
+      "Sushi",
+      "Ramen",
+      "Takoyaki",
+      "Tempura"
+    ],
+    "correct_answer": "Tempura"
+  },
+  {
+    "question": "Which of these car manufacturers is not Japanese?",
+    "options": [
+      "Daihatsu",
+      "Lexus",
+      "Hyundai",
+      "Nissan"
+    ],
+    "correct_answer": "Hyundai"
+  },
+  {
+    "question": "Which is the longest running anime series?",
+    "options": [
+      "One Piece",
+      "YU-GI-OH",
+      "Detective Conan",
+      "Crayon Shin-Chan"
+    ],
+    "correct_answer": "Crayon Shin-Chan"
+  },
+  {
+    "question": "Japan turns which of the following into renewable energy?",
+    "options": [
+      "Stationary Bikes",
+      "Leftover Sushi Rice",
+      "Footsteps",
+      "Crowd Noises"
+    ],
+    "correct_answer": "Footsteps"
+  },
+  {
+    "question": "What is the second largest city in Japan by Population?",
+    "options": [
+      "Yokohama",
+      "Osaka",
+      "Nagoya",
+      "Kyoto"
+    ],
+    "correct_answer": "Yokohama"
+  },
+  {
+    "question": "How many siblings does Killua Zoldyck have?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "2"
+    ],
+    "correct_answer": "4"
+  },
+  {
+    "question": "When was the first time Killua & Gon met?",
+    "options": [
+      "Hunter Exam",
+      "Heavens Arena",
+      "Greed Island",
+      "Whale Tail Island"
+    ],
+    "correct_answer": "Hunter Exam"
+  },
+  {
+    "question": "How old is Hisoka? ",
+    "options": [
+      "12 ",
+      "30 ",
+      "28",
+      "44"
+    ],
+    "correct_answer": "28"
+  },
+  {
+    "question": "How many points has Hisoka won against Gon at Heavens Arena?",
+    "options": [
+      "10-6",
+      "9-4",
+      "2-1",
+      "3-4"
+    ],
+    "correct_answer": "9-4"
+  },
+  {
+    "question": "Why does Kurapika hate spiders?",
+    "options": [
+      "because they are creepy",
+      "because they remind him of the Phantom Troupe",
+      "because they murdered his parents",
+      "because he has Arachnophobia "
+    ],
+    "correct_answer": "because they remind him of the Phantom Troupe"
+  },
+  {
+    "question": "Why does Gon want to become a Hunter?",
+    "options": [
+      "Because of his dad",
+      "Because he was forced to",
+      "Because he wants to make new friends",
+      "Because he wants to go on an adventure"
+    ],
+    "correct_answer": "Because of his dad"
+  },
+  {
+    "question": "How many Phantom Troupe members are there?",
+    "options": [
+      "44",
+      "13",
+      "16",
+      "20"
+    ],
+    "correct_answer": "13"
+  },
+  {
+    "question": "What Nen does Illumi have?",
+    "options": [
+      "Transmutation",
+      "Specialization",
+      "Manipulation",
+      "Emuter"
+    ],
+    "correct_answer": "Manipulation"
   }
 ]
