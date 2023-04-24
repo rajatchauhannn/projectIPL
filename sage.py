@@ -187,7 +187,7 @@ def tel_match_score(chat_id):
 
     for i in data_json['data']:
         try:
-            if i['matchType'] == 't20':
+            if i['series_id'] == 'c75f8952-74d4-416f-b7b4-7da4b4e3ae6e':
                 break
         except:
             pass
