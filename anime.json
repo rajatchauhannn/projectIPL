@@ -91,7 +91,7 @@
     "correct_answer": "Resonance"
   },
   {
-    "question": "Which PokÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â©mon has electricity-storing pouches on its cheeks?",
+    "question": "Which PokÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©mon has electricity-storing pouches on its cheeks?",
     "options": [
       "Pikachu",
       "Squirtle",
@@ -261,7 +261,7 @@
     "correct_answer": "Trixie"
   },
   {
-    "question": "What is the name of Studio Ghibliâ€™s well-known mascot?",
+    "question": "What is the name of Studio Ghibli’s well-known mascot?",
     "options": [
       "Kiki",
       "Bakura",
@@ -269,5 +269,355 @@
       "Totoro"
     ],
     "correct_answer": "Totoro"
+  },
+  {
+    "question": "Who was the first Hashira that Tanjiro met in the mountains?",
+    "options": [
+      "Giyu Tomioka",
+      "Shinobu Kocho",
+      "Tengen Uzui",
+      "Zenitsu"
+    ],
+    "correct_answer": "Giyu Tomioka"
+  },
+  {
+    "question": "What type of bird serves as a messenger to Demon Slayers?",
+    "options": [
+      "Hawks",
+      "Eagles",
+      "Pigeons",
+      "Crows"
+    ],
+    "correct_answer": "Crows"
+  },
+  {
+    "question": "What type of sword does a Demon Slayer wield?",
+    "options": [
+      "Steel Katana",
+      "Nichirin Sword",
+      "Adamantium Blade",
+      "Black Blade"
+    ],
+    "correct_answer": "Nichirin Sword"
+  },
+  {
+    "question": "Name this trainer who taught Tanjiro his water breathing technique.",
+    "options": [
+      "Sankonji Urokodaki",
+      "Kyojuro Rengoku",
+      "Shinjiro Rengoku",
+      "Peter Griffin"
+    ],
+    "correct_answer": "Sankonji Urokodaki"
+  },
+  {
+    "question": "In Demon Slayer, How many days did Tanjiro have to survive for the Final Selection?",
+    "options": [
+      "14",
+      "5",
+      "7",
+      "9"
+    ],
+    "correct_answer": "7"
+  },
+  {
+    "question": "In Demon Slayer, What is a demon's greatest weakness?",
+    "options": [
+      "Sunlight",
+      "Water Breathing Technique",
+      "Fire Breathing Technique",
+      "Holy Water"
+    ],
+    "correct_answer": "Sunlight"
+  },
+  {
+    "question": "In Demon Slayer, Which Demon Slayer always gets Tanjiro's name wrong?",
+    "options": [
+      "Zenitsu Agatsuma",
+      "Inosuke Hashibara",
+      "Genya Shinazugawa",
+      "Nezuko Kamado"
+    ],
+    "correct_answer": "Inosuke Hashibara"
+  },
+  {
+    "question": "In Demon Slayer, There are ___ Kizuki under Kibutsuji's command.",
+    "options": [
+      "10",
+      "12",
+      "14",
+      "8"
+    ],
+    "correct_answer": "12"
+  },
+  {
+    "question": "In Demon Slayer, What was the name of the drum demon who was removed from the Kizuki?",
+    "options": [
+      "Enmu",
+      "Kyogai",
+      "Akaza",
+      "Ritsu"
+    ],
+    "correct_answer": "Kyogai"
+  },
+  {
+    "question": "In Demon Slayer, Who are the two demons on the run from Kibutsuji?",
+    "options": [
+      "Nezuko and Tanjiro",
+      "Rui and Enmu",
+      "Tamayo and Yushiro",
+      "Zenitsu and Inosuke"
+    ],
+    "correct_answer": "Tamayo and Yushiro"
+  },
+  {
+    "question": "Which Demon Slayer literally kills demons in his sleep?",
+    "options": [
+      "Zenitsu",
+      "Inosuke",
+      "Tanjiro",
+      "Nezuko"
+    ],
+    "correct_answer": "Zenitsu"
+  },
+  {
+    "question": "In Demon Slayer, What did Tanjiro sell before he became a Demon Slayer?",
+    "options": [
+      "Iron ore",
+      "Charcoal",
+      "Lumber",
+      "Wood"
+    ],
+    "correct_answer": "Charcoal"
+  },
+  {
+    "question": "In Demon Slayer, Which two Demon Slayers had never seen a train before?",
+    "options": [
+      "Zenitsu and Inosuke",
+      "Inosuke and Tanjiro",
+      "Tanjiro and Zenitsu",
+      "Zenitsu and Nezuko"
+    ],
+    "correct_answer": "Inosuke and Tanjiro"
+  },
+  {
+    "question": "Which studio adapted Steins;Gate?",
+    "options": [
+      "White Fox",
+      "Madhouse",
+      "A-1 Pictures ",
+      "Production I.G "
+    ],
+    "correct_answer": "White Fox"
+  },
+  {
+    "question": "Which anime is Toei Animations known for the most?",
+    "options": [
+      "Dragon Ball",
+      "Hunter x Hunter",
+      "One Piece",
+      "Detective Conan"
+    ],
+    "correct_answer": "One Piece"
+  },
+  {
+    "question": "Which studio adapted Haikyuu?",
+    "options": [
+      "Production I.G",
+      "Sunrise",
+      "Bones",
+      "J.C. Staff"
+    ],
+    "correct_answer": "Production I.G"
+  },
+  {
+    "question": "Which studio adapted the Monogatari Series?",
+    "options": [
+      "Shaft",
+      "Ufotable",
+      "Trigger",
+      "Kyoto Animation"
+    ],
+    "correct_answer": "Shaft"
+  },
+  {
+    "question": "Which studio adapted Code Geass?",
+    "options": [
+      "Sunrise",
+      "Bones",
+      "Wit Studio",
+      "Madhouse"
+    ],
+    "correct_answer": "Sunrise"
+  },
+  {
+    "question": "Which anime is not adapted by Wit Studio?",
+    "options": [
+      "Vinland Saga",
+      "Great Pretender",
+      "Seraph of the End",
+      "Yuri on Ice!!!"
+    ],
+    "correct_answer": "Yuri on Ice!!!"
+  },
+  {
+    "question": "Which anime is not adapted by MAPPA?",
+    "options": [
+      "Terror in Resonance",
+      "Yuri on Ice!!!",
+      "Kids on the Slope",
+      "Angel Beats"
+    ],
+    "correct_answer": "Angel Beats"
+  },
+  {
+    "question": "Which anime is not adapted by Kyoto Animation?",
+    "options": [
+      "Full Metal Panic",
+      "The Melancholy of Haruhi Suzumiya",
+      "CLANNAD",
+      "No Game No Life"
+    ],
+    "correct_answer": "No Game No Life"
+  },
+  {
+    "question": "Which anime is not adapted by Studio Bones?",
+    "options": [
+      "Fullmetal Alchemist",
+      "Attack on Titan",
+      "Ouran High School Host Club",
+      "My Hero Academia"
+    ],
+    "correct_answer": "Attack on Titan"
+  },
+  {
+    "question": "Which one of these are not by Studio Ghibli?",
+    "options": [
+      "Spirited Away",
+      "Princess Monoke",
+      "Your Name",
+      "My Neighbor Totoro"
+    ],
+    "correct_answer": "Your Name"
+  },
+  {
+    "question": "Which anime is not adapted by Production I.G?",
+    "options": [
+      "Ghost in The Shell",
+      "Psycho-Pass",
+      "Haikyu!!",
+      "Log Horizon"
+    ],
+    "correct_answer": "Log Horizon"
+  },
+  {
+    "question": "Which anime is not adapted by CloverWorks?",
+    "options": [
+      "Black Clover",
+      "Rascan Does Not Dream of Bunny Girl Senpai",
+      "Wonder Egg Priority",
+      "Promised Neverland"
+    ],
+    "correct_answer": "Black Clover"
+  },
+  {
+    "question": "Which anime is not adapted by Studio Pierrot?",
+    "options": [
+      "Tokyo Ghoul",
+      "Naruto",
+      "Bleach",
+      "Fairy Tail"
+    ],
+    "correct_answer": "Fairy Tail"
+  },
+  {
+    "question": "Which anime is not adapted by A-1 Pictures?",
+    "options": [
+      "Your Lie In April",
+      "Silver Spoon",
+      "Saga of Tanya the Evil",
+      "Sword Art Online"
+    ],
+    "correct_answer": "Saga of Tanya the Evil"
+  },
+  {
+    "question": "Which anime is not adapted by Toei Animation?",
+    "options": [
+      "Dragon Ball",
+      "Sailor Moon",
+      "Digimon",
+      "Gate"
+    ],
+    "correct_answer": "Gate"
+  },
+  {
+    "question": "Which anime is not adapted by Trigger?",
+    "options": [
+      "Gurren Lagan",
+      "DARLING in the FRANXX",
+      "Little Wich Academia",
+      "Isekai Cheat Magician"
+    ],
+    "correct_answer": "Isekai Cheat Magician"
+  },
+  {
+    "question": "Out of these which anime is adapted by P.A. Works?",
+    "options": [
+      "Charlotte",
+      "KonoSuba",
+      "Saiki. Kusuo",
+      "Overlord"
+    ],
+    "correct_answer": "Charlotte"
+  },
+  {
+    "question": "Out of these which anime is adapted by J.C. Staff?",
+    "options": [
+      "Violet Evergarden",
+      "One Punch Man",
+      "Devil is a Part Timer",
+      "Drifters"
+    ],
+    "correct_answer": "One Punch Man"
+  },
+  {
+    "question": "Out of these which anime is adapted by Shaft?",
+    "options": [
+      "Alita Battle Angel",
+      "March Comes in Like A Lion",
+      "Evangelion",
+      "Tower of God"
+    ],
+    "correct_answer": "March Comes in Like A Lion"
+  },
+  {
+    "question": "Out of these which anime is adapted by Gainax?",
+    "options": [
+      "FLCL",
+      "Ghost Stories",
+      "Berserk",
+      "Monster"
+    ],
+    "correct_answer": "FLCL"
+  },
+  {
+    "question": "Out of these which anime is adapted by Brain's Base?",
+    "options": [
+      "SNAFU",
+      "Noragami",
+      "Bungou Stray Dogs",
+      "Banana Fish"
+    ],
+    "correct_answer": "SNAFU"
+  },
+  {
+    "question": "Who voiced Natsuki Subaru in the anime Re:Zero?",
+    "options": [
+      "Kobayashi Yusuke",
+      "Mamoru Miyano",
+      "Yuki Kaji",
+      "Hiroshi Kamiya"
+    ],
+    "correct_answer": "Kobayashi Miyano"
   }
 ]
