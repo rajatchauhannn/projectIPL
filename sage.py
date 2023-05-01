@@ -1,4 +1,4 @@
-from flask import Flask, request, Response
+from flask import Flask,  request, Response
 import requests, json, os, traceback
 from urllib.request import urlopen
 from dotenv import load_dotenv
@@ -7,7 +7,7 @@ TOKEN = os.getenv("TEL_TOKEN")
 
 
 from anime import tel_nsfw_waifu, tel_anime, tel_add_anime
-from mc import tel_aternos_execute, tel_aternos_start, tel_aternos_status, tel_aternos_stop
+from mc import tel_aternos_start, tel_aternos_status, tel_aternos_stop
 from ipl import tel_match_score, tel_send_poll, tel_show_score, tel_toss, tel_update_score
 from misc import tel_fact, tel_send_message
 
@@ -179,13 +179,12 @@ def tel_send_menu(chat_id, txt, msg, *args):
             ]
         }
     }
-    r = requests.post(urls['sendMessage'], json=payload)
-    return r
+    requests.post(urls['sendMessage'], json=payload)
 
 
 
 # Define a list of valid commands to avoid repeated slicing of txt string
-valid_commands = ['/mcexecute', '/toss', '/poll', '/score', '/show', '/match', '/help', '/nsfw', '/sfw', '/mcstart', '/mcstop', '/mcstatus', '/fact', '/anime', '/addanime', '/inlineurl', '/menu']
+valid_commands = ['/toss', '/poll', '/score', '/show', '/match', '/help', '/nsfw', '/sfw', '/mcstart', '/mcstop', '/mcstatus', '/fact', '/anime', '/addanime', '/inlineurl', '/menu']
 
 # Define the route and HTTP methods to be used
 @app.route('/', methods=['GET', 'POST'])
@@ -224,7 +223,6 @@ def index():
                 '/addanime': tel_add_anime,
                 '/inlineurl': tel_send_inlineurl,
                 '/menu': tel_send_menu,
-                '/mcexecute' : tel_aternos_execute
             }
 
             # Check if the txt string contains a valid command
@@ -252,4 +250,4 @@ def index():
 
  
 if __name__ == '__main__':
-   app.run(threaded=True, debug=True)
+   app.run(threaded=True, debug=False)

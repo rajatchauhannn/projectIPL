@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 TOKEN = os.getenv("TEL_TOKEN")
 urls={
-    "sendMessage": f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+    "sendMessage": f"https://api.telegram.org/bot{TOKEN}/sendMessage"
 }
 
 

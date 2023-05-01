@@ -57,11 +57,12 @@ def tel_show_score(chat_id, *args):
     with open('score.json') as file:
         data = json.load(file)
     
-    text = 'Current Score\n\n'
+    text = "<b>Current Score</b>\n\n"
     for key, value in data.items():
-        text += f'{key} : {value}\n'
+        text += f"<i>{key}:</i> {value}\n"
     
-    requests.post(urls['sendMessage'], json={'chat_id': chat_id, 'text': text})
+    requests.post(urls['sendMessage'], json={'chat_id': chat_id, 'parse_mode': 'HTML', 'text': text})
+
 
 def tel_match_score(chat_id, *args):
     try:
@@ -83,7 +84,6 @@ def tel_match_score(chat_id, *args):
                     t1, t1s, t2, t2s, status = match_data['t1'], match_data['t1s'], match_data['t2'], match_data['t2s'], match_data['status']
                     text = f"{t1}\t{t1s}\nVS\n{t2}\t{t2s}\n\n{status}"
                     requests.post(urls['sendMessage'], json={'chat_id': chat_id, 'text': text})
-                    break
 
     except Exception as e:
         print(f"Error occurred in tel_match_score(): {e}")

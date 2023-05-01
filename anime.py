@@ -8,6 +8,7 @@ urls={
     "sendMessage": f"https://api.telegram.org/bot{TOKEN}/sendMessage",
     "sendPhoto" : f"https://api.telegram.org/bot{TOKEN}/sendPhoto",
     "sendAnimation" : f"https://api.telegram.org/bot{TOKEN}/sendAnimation",
+    "sendPoll" : f"https://api.telegram.org/bot{TOKEN}/sendPoll",
 }
 
 def tel_add_anime(chat_id, *args):
@@ -47,8 +48,8 @@ def tel_anime(chat_id, *args):
             "options": json.dumps(all_answers),
             "is_anonymous" : False,
             "type":"quiz",
-            "correct_option_id": correct_option_id
-
+            "correct_option_id": correct_option_id,
+            'parse_message' : 'HTML'
         } 
     requests.post(urls['sendPoll'], json=payload)
 
