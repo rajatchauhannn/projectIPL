@@ -11,6 +11,62 @@ urls={
     "sendPhoto" : f"https://api.telegram.org/bot{TOKEN}/sendPhoto",
 }
 
+def text_to_image_files(name1: str, score1: int, name2: str, score2: int):
+    from PIL import Image, ImageDraw, ImageFont
+
+    # Set image size and font size
+    bg_color = (0, 0, 0, 0)
+    width = 500
+    height = 500
+    # Create a new image with transparent background
+    image = Image.new("RGBA", (width, height), bg_color)
+
+    # Load the font
+    font_title = ImageFont.truetype("arial.ttf", size=50)
+    font_names = ImageFont.truetype("arial.ttf", size=30)
+    font_scores = ImageFont.truetype("arial.ttf", size=50)
+
+    # Load the cricket ball image
+    ball_image = Image.open("cricket_ball.png")
+
+    # Paste the cricket ball image onto the background
+    image.paste(ball_image)
+
+    # Draw the player names and scores
+    text_color = (255, 255, 255)
+    name1_left = 100
+    name2_left = width - 100 - font_names.getsize(name2)[0]
+    name_top = 300
+    score1_left = 130
+    score2_left = width - 130 - font_scores.getsize(str(score2))[0]
+    score_top = name_top + font_names.getsize(name1)[1] + 20
+    draw = ImageDraw.Draw(image)
+    # Double the border size and adjust position
+    draw.text((name1_left, name_top), name1, fill=text_color, font=font_names, stroke_width=6, stroke_fill=(0, 0, 0))
+    draw.text((name2_left, name_top), name2, fill=text_color, font=font_names, stroke_width=6, stroke_fill=(0, 0, 0))
+    draw.text((score1_left, score_top), str(score1), fill=text_color, font=font_scores, stroke_width=6, stroke_fill=(0, 0, 0))
+    draw.text((score2_left, score_top), str(score2), fill=text_color, font=font_scores, stroke_width=6, stroke_fill=(0, 0, 0))
+
+    # Draw the title
+    title = "IPL SCORE:"
+    title_size = font_title.getsize(title)
+    title_left = (width - title_size[0]) / 2
+    title_top = name_top - title_size[1] - 50
+    # Double the border size and adjust position
+    draw.text((title_left, title_top), title, fill=text_color, font=font_title, stroke_width=6, stroke_fill=(0, 0, 0), align="center")
+
+    # Save the image
+    filename = "cricket_score.png"
+    image.save(filename)
+
+    # Send the image to the Telegram chat
+    files = {'photo': open(filename, "rb")}
+
+    # Return the image object
+    return files
+
+
+
 def tel_toss(chat_id, *args):
     tails="https://qph.cf2.quoracdn.net/main-qimg-148ae81e6fe0500e130fb547026a9b26-lq"
     heads="https://qph.cf2.quoracdn.net/main-qimg-e0e0099a4e81c40def6da0742c9201b5-lq"
@@ -57,11 +113,13 @@ def tel_show_score(chat_id, *args):
     with open('score.json') as file:
         data = json.load(file)
     
-    text = "<b>Current Score</b>\n\n"
+    scoreboardlst = []
     for key, value in data.items():
-        text += f"<i>{key}:</i> {value}\n"
+        scoreboardlst.extend([key,value])
+    print(scoreboardlst)
+    textfiles = text_to_image_files(scoreboardlst[0],scoreboardlst[1],scoreboardlst[2],scoreboardlst[3],)
     
-    requests.post(urls['sendMessage'], json={'chat_id': chat_id, 'parse_mode': 'HTML', 'text': text})
+    requests.post(urls['sendPhoto'], data={'chat_id': chat_id}, files=textfiles)
 
 
 def tel_match_score(chat_id, *args):

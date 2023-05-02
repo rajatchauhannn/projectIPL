@@ -9,7 +9,7 @@ TOKEN = os.getenv("TEL_TOKEN")
 from anime import tel_nsfw_waifu, tel_anime, tel_add_anime
 from mc import tel_aternos_start, tel_aternos_status, tel_aternos_stop
 from ipl import tel_match_score, tel_send_poll, tel_show_score, tel_toss, tel_update_score
-from misc import tel_fact, tel_send_message
+from misc import tel_fact, tel_send_message, tel_send_document, tel_upload_file
 
 app = Flask(__name__)
 urls={
@@ -104,30 +104,6 @@ def tel_help(chat_id, *args):
 /help - Shows this help page'''
     }
     requests.post(urls['sendMessage'], json=payload)
-
-def tel_upload_file(file_id, *args):
-    # Getting the url for the file
-    url = f'https://api.telegram.org/bot{TOKEN}/getFile?file_id={file_id}'
-    a = requests.post(url)
-    json_resp = json.loads(a.content)
-    print("json_resp-->", json_resp)
-    file_path = json_resp['result']['file_path']
-    print("file_path-->", file_path)
-
-    # saving the file to our computer
-    url_1 = f'https://api.telegram.org/file/bot{TOKEN}/{file_path}'
-    b = requests.get(url_1)
-    file_content = b.content
-    with open(file_path, "wb") as f:
-        f.write(file_content)
-
-
-def tel_send_document(chat_id, *args):
-    payload = {
-        'chat_id': chat_id,
-        "document": "http://www.africau.edu/images/default/sample.pdf",
-    }
-    requests.post(urls['sendDocument'], json=payload)
 
 def tel_send_inlineurl(chat_id, *args):
     payload = {
@@ -250,4 +226,4 @@ def index():
 
  
 if __name__ == '__main__':
-   app.run(threaded=True, debug=False)
+   app.run(threaded=True, debug=True)
